@@ -163,7 +163,7 @@ class Bank:
         accnum = input("enter yout account number: ")
         pin = int(input("enter your pin: "))
 
-        userdata = [i for i in userdata if i['accountNo.'] == accnum and i['pin'] == pin]
+        userdata = [i for i in Bank.data if i['accountNo.'] == accnum and i['pin'] == pin]
 
         if userdata == False :
             print("does not exist")
@@ -172,7 +172,10 @@ class Bank:
             if check == 'n' or check == "N":
                 pass
             else:
-                
+                index = Bank.data.index(userdata[0])
+                Bank.data.pop(index)
+                print("deleted")
+                Bank.__update()
                 
 
 obj = Bank()
